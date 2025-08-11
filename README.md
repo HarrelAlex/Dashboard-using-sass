@@ -1,2 +1,2 @@
 # Dashboard-using-sass
-dash
+dashboard created using sass
