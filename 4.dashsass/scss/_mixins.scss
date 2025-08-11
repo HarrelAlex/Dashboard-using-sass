@@ -1,0 +1,68 @@
+@use "variables" as *;
+
+@mixin flex-row($align: stretch, $justify: flex-start, $gap: null) {
+  display: flex;
+  flex-direction: row;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin flex-col($align: stretch, $justify: flex-start, $gap: null) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin circle($size, $bg-color, $text-color: white, $font-size: 12px) {
+  width: $size;
+  height: $size;
+  background: $bg-color;
+  color: $text-color;
+  border-radius: 100%;
+  @include flex-col(center, center);
+  font-size: $font-size;
+}
+
+// Responsive mixins
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$large-desktop}) {
+    @content;
+  }
+}
+
+@mixin mobile-up {
+  @media (min-width: #{$mobile + 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$tablet + 1px}) {
+    @content;
+  }
+}
